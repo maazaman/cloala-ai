@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Infinity } from "lucide-react";
 export const Header = () => {
-  return <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
+  return <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-border">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
@@ -25,8 +26,11 @@ export const Header = () => {
           </a>
         </nav>
 
-        {/* CTA */}
-        <Button className="bg-zinc-950 hover:bg-zinc-800 text-lime-300 font-bold">Test Now</Button>
+        {/* Theme Toggle & CTA */}
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
+          <Button>Test Now</Button>
+        </div>
       </div>
     </header>;
 };

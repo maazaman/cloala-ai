@@ -2,21 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fashion AI Design System - Professional B2B Interface
+/* Fashion AI Design System - Day/Night Mode with Glassmorphism
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    /* Day Mode - Bright & Soft */
+    --background: linear-gradient(135deg, 0 0% 98%, 210 20% 98%);
+    --background-solid: 0 0% 98%;
+    --foreground: 0 0% 15%;
     
     /* Brand Colors */
     --brand-teal: 184 95% 39%;
+    --brand-teal-light: 184 85% 55%;
     --brand-teal-dark: 184 95% 29%;
     --brand-success: 142 76% 36%;
     --brand-warning: 43 96% 56%;
     --brand-danger: 0 84% 60%;
+    
+    /* Day Mode Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-teal)), hsl(var(--brand-teal-light)));
+    --gradient-bg: linear-gradient(135deg, hsl(0 0% 98%), hsl(210 20% 96%));
+    --gradient-card: linear-gradient(135deg, hsla(0 0% 100% / 0.8), hsla(210 20% 98% / 0.6));
+    
+    /* Glassmorphism */
+    --glass-bg: hsla(0 0% 100% / 0.25);
+    --glass-border: hsla(0 0% 100% / 0.18);
+    --glass-shadow: 0 8px 32px hsla(0 0% 0% / 0.1);
+    --glass-backdrop: blur(12px);
     
     /* Neutral Grays */
     --neutral-50: 0 0% 98%;
@@ -75,41 +89,56 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Night Mode - Deep & Glowing */
+    --background: linear-gradient(135deg, 220 25% 8%, 240 15% 12%);
+    --background-solid: 220 25% 8%;
+    --foreground: 210 40% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    /* Night Mode Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(184 100% 45%), hsl(190 100% 60%));
+    --gradient-bg: linear-gradient(135deg, hsl(220 25% 8%), hsl(240 15% 12%));
+    --gradient-card: linear-gradient(135deg, hsla(220 25% 15% / 0.8), hsla(240 15% 20% / 0.6));
+    
+    /* Night Glassmorphism with Glow */
+    --glass-bg: hsla(220 25% 15% / 0.4);
+    --glass-border: hsla(184 100% 60% / 0.2);
+    --glass-shadow: 0 8px 32px hsla(184 100% 60% / 0.15);
+    --glass-backdrop: blur(16px);
+    --neon-glow: 0 0 20px hsla(184 100% 60% / 0.4);
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --card: var(--glass-bg);
+    --card-foreground: 210 40% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --popover: 220 25% 12%;
+    --popover-foreground: 210 40% 95%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --primary: var(--brand-teal-light);
+    --primary-foreground: 220 25% 8%;
 
-    --muted: 217.2 32.6% 17.5%;
+    --secondary: 220 25% 15%;
+    --secondary-foreground: 210 40% 95%;
+
+    --muted: 220 25% 12%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: var(--brand-teal-light);
+    --accent-foreground: 220 25% 8%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: hsla(184 100% 60% / 0.2);
+    --input: 220 25% 15%;
+    --ring: var(--brand-teal-light);
+    
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 210 40% 95%;
+    --sidebar-primary: var(--brand-teal-light);
+    --sidebar-primary-foreground: 220 25% 8%;
+    --sidebar-accent: 220 25% 15%;
+    --sidebar-accent-foreground: 210 40% 95%;
+    --sidebar-border: hsla(184 100% 60% / 0.2);
+    --sidebar-ring: var(--brand-teal-light);
   }
 }
 
@@ -119,6 +148,32 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300;
+    background: var(--gradient-bg);
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism utilities */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+  
+  .glass-card {
+    background: var(--gradient-card);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+  
+  .dark .glass-glow {
+    box-shadow: var(--glass-shadow), var(--neon-glow);
+  }
+  
+  .gradient-primary {
+    background: var(--gradient-primary);
   }
 }
