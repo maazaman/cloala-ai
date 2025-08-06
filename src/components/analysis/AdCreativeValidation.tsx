@@ -24,14 +24,15 @@ export const AdCreativeValidation = () => {
   ];
 
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle>Ad Creative Validation</CardTitle>
-        <p className="text-muted-foreground">
-          Analyze your marketing content effectiveness
-        </p>
-      </CardHeader>
-      <CardContent className="space-y-6">
+    <div className="min-h-[80vh] bg-background flex items-center justify-center p-6">
+      <Card className="w-full max-w-4xl shadow-lg">
+        <CardHeader>
+          <CardTitle>Ad Creative Validation</CardTitle>
+          <p className="text-muted-foreground">
+            Analyze your marketing content effectiveness
+          </p>
+        </CardHeader>
+        <CardContent className="space-y-6">
         {/* Ad Caption Input */}
         <div>
           <label htmlFor="caption" className="block text-sm font-medium mb-2">
@@ -90,5 +91,6 @@ export const AdCreativeValidation = () => {
         </div>
       </CardContent>
     </Card>
+    </div>
   );
 };

@@ -19,14 +19,15 @@ export const GeographicAnalysis = () => {
   };
 
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle>Geographic Market Analysis</CardTitle>
-        <p className="text-muted-foreground">
-          Regional compatibility and market potential
-        </p>
-      </CardHeader>
-      <CardContent className="space-y-8">
+    <div className="min-h-[80vh] bg-background flex items-center justify-center p-6">
+      <Card className="w-full max-w-4xl shadow-lg">
+        <CardHeader>
+          <CardTitle>Geographic Market Analysis</CardTitle>
+          <p className="text-muted-foreground">
+            Regional compatibility and market potential
+          </p>
+        </CardHeader>
+        <CardContent className="space-y-8">
         {/* Market Compatibility */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -105,5 +106,6 @@ export const GeographicAnalysis = () => {
         </div>
       </CardContent>
     </Card>
+    </div>
   );
 };

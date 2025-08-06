@@ -21,14 +21,15 @@ export const DemandForecasting = () => {
   const maxValue = Math.max(...demandData.map(d => d.value));
 
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle>Demand Forecasting</CardTitle>
-        <p className="text-muted-foreground">
-          Predict market demand and optimal launch timing
-        </p>
-      </CardHeader>
-      <CardContent className="space-y-8">
+    <div className="min-h-[80vh] bg-background flex items-center justify-center p-6">
+      <Card className="w-full max-w-4xl shadow-lg">
+        <CardHeader>
+          <CardTitle>Demand Forecasting</CardTitle>
+          <p className="text-muted-foreground">
+            Predict market demand and optimal launch timing
+          </p>
+        </CardHeader>
+        <CardContent className="space-y-8">
         {/* Demand Chart */}
         <div>
           <div className="flex items-center justify-between mb-4">
@@ -110,5 +111,6 @@ export const DemandForecasting = () => {
         </div>
       </CardContent>
     </Card>
+    </div>
   );
 };

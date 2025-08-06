@@ -19,14 +19,15 @@ export const PricingAdvisor = () => {
   const marketRange = "$22 - $38";
 
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle>Pricing Advisor</CardTitle>
-        <p className="text-muted-foreground">
-          Optimal pricing strategy based on market analysis
-        </p>
-      </CardHeader>
-      <CardContent className="space-y-6">
+    <div className="min-h-[80vh] bg-background flex items-center justify-center p-6">
+      <Card className="w-full max-w-4xl shadow-lg">
+        <CardHeader>
+          <CardTitle>Pricing Advisor</CardTitle>
+          <p className="text-muted-foreground">
+            Optimal pricing strategy based on market analysis
+          </p>
+        </CardHeader>
+        <CardContent className="space-y-6">
         {/* Input Fields */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
@@ -103,5 +104,6 @@ export const PricingAdvisor = () => {
         </div>
       </CardContent>
     </Card>
+    </div>
   );
 };

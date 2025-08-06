@@ -19,14 +19,15 @@ export const DesignAnalysis = () => {
   ];
 
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle>Design Analysis</CardTitle>
-        <p className="text-muted-foreground">
-          Analyzing your marketing content effectiveness
-        </p>
-      </CardHeader>
-      <CardContent className="space-y-8">
+    <div className="min-h-[80vh] bg-background flex items-center justify-center p-6">
+      <Card className="w-full max-w-4xl shadow-lg">
+        <CardHeader>
+          <CardTitle>Design Analysis</CardTitle>
+          <p className="text-muted-foreground">
+            Analyzing your marketing content effectiveness
+          </p>
+        </CardHeader>
+        <CardContent className="space-y-8">
         {/* Color Palette */}
         <div>
           <h3 className="font-semibold mb-4">Color Palette</h3>
@@ -125,5 +126,6 @@ export const DesignAnalysis = () => {
         </div>
       </CardContent>
     </Card>
+    </div>
   );
 };
