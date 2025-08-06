@@ -3,25 +3,27 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Download, Save, RotateCcw } from "lucide-react";
-
 export const ValidationDashboard = () => {
   const overallScore = 78;
-  const scoreBreakdown = [
-    { category: "design", score: 82, label: "Design" },
-    { category: "market", score: 75, label: "Market" },
-    { category: "pricing", score: 79, label: "Pricing" },
-    { category: "timing", score: 76, label: "Timing" },
-  ];
-
-  const keyInsights = [
-    "Strong design appeal in Asian markets",
-    "Optimal pricing within competitive range",
-    "Spring launch timing ideal for demand",
-    "Consider Tokyo and LA as primary markets",
-  ];
-
-  return (
-    <div className="w-full space-y-6">
+  const scoreBreakdown = [{
+    category: "design",
+    score: 82,
+    label: "Design"
+  }, {
+    category: "market",
+    score: 75,
+    label: "Market"
+  }, {
+    category: "pricing",
+    score: 79,
+    label: "Pricing"
+  }, {
+    category: "timing",
+    score: 76,
+    label: "Timing"
+  }];
+  const keyInsights = ["Strong design appeal in Asian markets", "Optimal pricing within competitive range", "Spring launch timing ideal for demand", "Consider Tokyo and LA as primary markets"];
+  return <div className="w-full space-y-6">
       {/* Dashboard Header */}
       <div className="text-center py-8 bg-gradient-to-r from-neutral-50 to-neutral-100 rounded-lg">
         <h2 className="text-3xl font-bold mb-2">Validation Dashboard</h2>
@@ -54,15 +56,13 @@ export const ValidationDashboard = () => {
             <CardTitle>Score Breakdown</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            {scoreBreakdown.map((item, index) => (
-              <div key={index} className="flex items-center justify-between">
+            {scoreBreakdown.map((item, index) => <div key={index} className="flex items-center justify-between">
                 <span className="text-sm font-medium">{item.label}</span>
                 <div className="flex items-center gap-3 flex-1 ml-4">
                   <Progress value={item.score} className="flex-1" />
                   <span className="text-sm font-bold w-8">{item.score}</span>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </CardContent>
         </Card>
 
@@ -73,12 +73,10 @@ export const ValidationDashboard = () => {
           </CardHeader>
           <CardContent>
             <ul className="space-y-3">
-              {keyInsights.map((insight, index) => (
-                <li key={index} className="flex items-start gap-2">
+              {keyInsights.map((insight, index) => <li key={index} className="flex items-start gap-2">
                   <div className="w-1.5 h-1.5 bg-brand-teal rounded-full mt-2 flex-shrink-0" />
                   <span className="text-sm">{insight}</span>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </CardContent>
         </Card>
@@ -104,7 +102,7 @@ export const ValidationDashboard = () => {
 
       {/* Action Buttons */}
       <div className="flex gap-4 justify-center">
-        <Button size="lg" className="gap-2">
+        <Button size="lg" className="gap-2 bg-red-600 hover:bg-red-500">
           <Download className="h-4 w-4" />
           Download Full Report
         </Button>
@@ -117,6 +115,5 @@ export const ValidationDashboard = () => {
           New Analysis
         </Button>
       </div>
-    </div>
-  );
+    </div>;
 };

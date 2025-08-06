@@ -26,7 +26,7 @@ export const Header = () => {
         </nav>
 
         {/* CTA */}
-        <Button className="bg-zinc-950 hover:bg-zinc-800 text-lime-300 font-bold">Test Now</Button>
+        <Button className="bg-zinc-950 hover:bg-zinc-800 font-bold text-lime-100">Test Now</Button>
       </div>
     </header>;
 };
