@@ -22,76 +22,82 @@ export const UploadDesign = () => {
   };
 
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle className="text-2xl font-bold text-center">
-          Validate Your Fashion Designs with AI
-        </CardTitle>
-        <p className="text-center text-muted-foreground">
-          Help clothing brands and manufacturers test their designs across multiple
-          criteria before launching. Get insights on trends, pricing, and market demand.
+    <div className="min-h-[80vh] bg-background flex flex-col items-center justify-center">
+      {/* Header */}
+      <div className="text-center mb-12 max-w-2xl">
+        <div className="inline-flex items-center gap-2 bg-accent/10 text-accent text-sm px-3 py-1 rounded-full mb-6">
+          <Upload className="h-4 w-4" />
+          Trusted by fashion brands
+        </div>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          Validate Your Designs.
+          <br />
+          <span className="text-muted-foreground">Local-first AI validation</span>
+        </h1>
+        <p className="text-lg text-muted-foreground mb-8">
+          Integrate design analysis and market validation in your browser.
+          <br />
+          No data ever leaves.
         </p>
-      </CardHeader>
-      <CardContent>
-        <div className="flex gap-4 mb-6">
-          <Button variant="default" className="flex-1">
-            Start Analysis
-          </Button>
-          <Button variant="outline" className="flex-1">
-            View Demo
-          </Button>
-        </div>
+      </div>
 
-        <div className="border-2 border-dashed border-border rounded-lg p-8">
-          {uploadedImage ? (
-            <div className="relative">
-              <img 
-                src={uploadedImage} 
-                alt="Uploaded design" 
-                className="max-w-full max-h-96 mx-auto rounded-lg"
-              />
-              <Button
-                variant="destructive"
-                size="sm"
-                className="absolute top-2 right-2"
-                onClick={removeImage}
-              >
-                <X className="h-4 w-4" />
-              </Button>
-            </div>
-          ) : (
-            <div className="text-center">
-              <div className="mx-auto h-16 w-16 rounded-full bg-neutral-100 flex items-center justify-center mb-4">
-                <Camera className="h-8 w-8 text-neutral-400" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Upload Your Design</h3>
-              <p className="text-muted-foreground mb-4">
-                Upload your t-shirt or hoodie design to begin the AI analysis
-              </p>
-              <div className="space-y-4">
-                <div className="border-2 border-dashed border-neutral-300 rounded-lg p-6">
-                  <Upload className="mx-auto h-12 w-12 text-neutral-400 mb-4" />
-                  <p className="font-medium mb-2">Drag & Drop Your Design</p>
-                  <p className="text-sm text-muted-foreground">
-                    Support for JPG, PNG, SVG files up to 10MB
-                  </p>
-                </div>
-                <div className="relative">
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleFileUpload}
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                  />
-                  <Button variant="outline" className="w-full">
-                    Choose File
-                  </Button>
-                </div>
-              </div>
-            </div>
-          )}
+      {/* Upload Area */}
+      {uploadedImage ? (
+        <div className="relative w-full max-w-md">
+          <img 
+            src={uploadedImage} 
+            alt="Uploaded design" 
+            className="w-full max-h-96 object-contain mx-auto rounded-lg border border-border"
+          />
+          <Button
+            variant="outline"
+            size="sm"
+            className="absolute top-2 right-2"
+            onClick={removeImage}
+          >
+            <X className="h-4 w-4" />
+          </Button>
         </div>
-      </CardContent>
-    </Card>
+      ) : (
+        <div className="w-full max-w-2xl">
+          <div className="relative border border-border rounded-lg bg-card/50 backdrop-blur-sm">
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleFileUpload}
+              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+              placeholder="What would you like to validate?"
+            />
+            <div className="p-8 text-center">
+              <div className="text-lg text-muted-foreground mb-4">
+                What would you like to validate?
+              </div>
+              <div className="flex items-center gap-2 justify-center text-accent">
+                <Upload className="h-5 w-5" />
+                <span className="text-sm">Upload Design</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Action Buttons */}
+          <div className="flex flex-wrap gap-3 mt-6 justify-center">
+            <Button variant="outline" size="sm" className="rounded-full">
+              <Camera className="h-4 w-4 mr-2" />
+              T-Shirt Design
+            </Button>
+            <Button variant="outline" size="sm" className="rounded-full">
+              <Upload className="h-4 w-4 mr-2" />
+              Hoodie Design
+            </Button>
+            <Button variant="outline" size="sm" className="rounded-full">
+              Market Analysis
+            </Button>
+            <Button variant="outline" size="sm" className="rounded-full">
+              Pricing Strategy
+            </Button>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
