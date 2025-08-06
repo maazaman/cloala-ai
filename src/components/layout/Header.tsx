@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Infinity } from "lucide-react";
-
 export const Header = () => {
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
+  return <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
@@ -28,8 +26,7 @@ export const Header = () => {
         </nav>
 
         {/* CTA */}
-        <Button>Try Alpha Now</Button>
+        <Button className="bg-zinc-950 hover:bg-zinc-800 text-lime-300 font-bold">Test Now</Button>
       </div>
-    </header>
-  );
+    </header>;
 };
