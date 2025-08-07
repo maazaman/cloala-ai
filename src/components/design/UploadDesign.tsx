@@ -200,61 +200,61 @@ export const UploadDesign = () => {
 
       {/* Upload Area */}
       <div className="flex flex-col items-center justify-center px-4 pb-20">
-        {uploadedImage ? (
-        <div className="relative w-full max-w-md">
-          <img 
-            src={uploadedImage} 
-            alt="Uploaded design" 
-            className="w-full max-h-96 object-contain mx-auto rounded-lg border border-border"
-          />
-          <Button
-            variant="outline"
-            size="sm"
-            className="absolute top-2 right-2"
-            onClick={removeImage}
-          >
-            <X className="h-4 w-4" />
-          </Button>
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-semibold mb-2">What would you like to validate?</h2>
         </div>
-      ) : (
-        <div className="w-full max-w-2xl">
-          <div className="relative border border-border rounded-lg bg-card/50 backdrop-blur-sm">
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleFileUpload}
-              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-              placeholder="What would you like to validate?"
+        
+        {uploadedImage ? (
+          <div className="relative w-full max-w-md">
+            <img 
+              src={uploadedImage} 
+              alt="Uploaded design" 
+              className="w-full max-h-96 object-contain mx-auto rounded-lg border border-border"
             />
-            <div className="p-8 text-center">
-              <div className="text-lg text-muted-foreground mb-4">
-                What would you like to validate?
-              </div>
-              <div className="flex items-center gap-2 justify-center text-accent">
-                <Upload className="h-5 w-5" />
-                <span className="text-sm">Upload Design</span>
+            <Button
+              variant="outline"
+              size="sm"
+              className="absolute top-2 right-2"
+              onClick={removeImage}
+            >
+              <X className="h-4 w-4" />
+            </Button>
+          </div>
+        ) : (
+          <div className="w-full max-w-2xl">
+            <div className="relative border border-border rounded-lg bg-card/50 backdrop-blur-sm">
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleFileUpload}
+                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+              />
+              <div className="p-8 text-center">
+                <div className="flex items-center gap-2 justify-center text-accent">
+                  <Upload className="h-5 w-5" />
+                  <span className="text-sm">Upload Design</span>
+                </div>
               </div>
             </div>
+            
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-3 mt-6 justify-center">
+              <Button variant="outline" size="sm" className="rounded-full">
+                <Camera className="h-4 w-4 mr-2" />
+                T-Shirt Design
+              </Button>
+              <Button variant="outline" size="sm" className="rounded-full">
+                <Upload className="h-4 w-4 mr-2" />
+                Hoodie Design
+              </Button>
+              <Button variant="outline" size="sm" className="rounded-full">
+                Market Analysis
+              </Button>
+              <Button variant="outline" size="sm" className="rounded-full">
+                Pricing Strategy
+              </Button>
+            </div>
           </div>
-          
-          {/* Action Buttons */}
-          <div className="flex flex-wrap gap-3 mt-6 justify-center">
-            <Button variant="outline" size="sm" className="rounded-full">
-              <Camera className="h-4 w-4 mr-2" />
-              T-Shirt Design
-            </Button>
-            <Button variant="outline" size="sm" className="rounded-full">
-              <Upload className="h-4 w-4 mr-2" />
-              Hoodie Design
-            </Button>
-            <Button variant="outline" size="sm" className="rounded-full">
-              Market Analysis
-            </Button>
-            <Button variant="outline" size="sm" className="rounded-full">
-              Pricing Strategy
-            </Button>
-          </div>
-        </div>
         )}
       </div>
     </div>
